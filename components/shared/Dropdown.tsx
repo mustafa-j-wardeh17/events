@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Input } from "../ui/input"
 import { ICategory } from "@/lib/database/models/category.model"
+import { createCategory, getAllCategories } from "@/lib/actions/category.action"
 //   import { createCategory, getAllCategories } from "@/lib/actions/category.actions"
 
 type DropdownProps = {
@@ -32,19 +33,19 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
     const [newCategory, setNewCategory] = useState('');
 
     const handleAddCategory = () => {
-        //   createCategory({
-        //     categoryName: newCategory.trim()
-        //   })
-        //     .then((category) => {
-        //       setCategories((prevState) => [...prevState, category])
-        //     })
+        createCategory({
+            categoryName: newCategory.trim()
+        })
+            .then((category) => {
+                setCategories((prevState) => [...prevState, category])
+            })
     }
 
     useEffect(() => {
         const getCategories = async () => {
-            // const categoryList = await getAllCategories();
+            const categoryList = await getAllCategories();
 
-            // categoryList && setCategories(categoryList as ICategory[])
+            categoryList && setCategories(categoryList as ICategory[])
         }
 
         getCategories();

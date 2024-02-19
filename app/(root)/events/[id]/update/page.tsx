@@ -7,7 +7,7 @@ const UpdateEvent = () => {
   const userId = sessionClaims?.userId as string
   return (
     <div>
-      <EventForm  userId={userId} type='update' />
+      <EventForm  userId={userId} type='Update' />
     </div>
   )
 }
