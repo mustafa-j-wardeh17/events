@@ -145,5 +145,15 @@ export type CreateUserParams = {
   
   export type SearchParamProps = {
     params: { id: string }
+    //where keys are strings the values can be strings, arrays of strings, or undefined.
     searchParams: { [key: string]: string | string[] | undefined }
   }
+//example of using SearchParamsProps
+//   const exampleProps: SearchParamProps = {
+//     params: { id: "123" },
+//     searchParams: {
+//         name: "John",
+//         age: ["25", "30"],
+//         category: undefined // example of a parameter that is defined but has no value
+//     }
+// };
