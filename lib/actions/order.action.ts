@@ -11,6 +11,7 @@ import {ObjectId} from 'mongodb';
 import User from '../database/models/user.nodel';
 
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
+  //FROM STRIPE DOCS
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
   const price = order.isFree ? 0 : Number(order.price) * 100;
